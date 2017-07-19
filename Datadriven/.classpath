@@ -32,8 +32,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Automacao/GithubQA/PlusoftQA/Datadriven/biblioteca/extentreports-1.41.jar"/>
 	<classpathentry kind="lib" path="C:/Automacao/GithubQA/PlusoftQA/Datadriven/biblioteca/extentreports-1.41-javadoc.jar"/>
 	<classpathentry kind="lib" path="C:/Automacao/GithubQA/PlusoftQA/Datadriven/biblioteca/extentreports-1.41-sources.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/amarinho/workspace/Datadriven/biblioteca/extentreports-1.41.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amarinho/workspace/Datadriven/biblioteca/extentreports-1.41-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amarinho/workspace/Datadriven/biblioteca/extentreports-1.41-sources.jar"/>
+>>>>>>> refs/remotes/origin/master
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -83,6 +83,7 @@ public class KeyWordExample {
 
 	// Report.extent.config().displayCallerClass(false);
 	// Report.extent.config()
+<<<<<<< HEAD
 	// .chartTitle(Chart.TEST, "caso")
 	// .chartTitle(Chart.STEP, "Passo a Passo");
 	// Report.extent.init("//srvdc06\\Departamentos\\Anexos CAC\\QUALIDADE\\ATIVIDADES\\AUTOMACAO\\RESULTADO\\"+caso+".html",
@@ -172,6 +173,97 @@ public class KeyWordExample {
 			
 			}else if (browserName.equalsIgnoreCase("edge")) {
 				File file = new File("/Datadriven/browser/MicrosoftWebDriver.exe");
+=======
+	// .chartTitle(Chart.TEST, "Caso")
+	// .chartTitle(Chart.STEP, "Passo a Passo");
+	// Report.extent.init("//srvdc06\\Departamentos\\Anexos CAC\\QUALIDADE\\ATIVIDADES\\AUTOMACAO\\RESULTADO\\"+caso+".html",
+	// false);
+	// Report.extent.startTest(caso);
+	// }
+
+	// public void pass (String metodo,String parametro, String imgPG ) {
+	//
+	// Report.Report.extent.log(LogStatus.PASS,metodo, parametro, imgPG);
+	//
+	// }
+
+	public static String createScreenshot(WebDriver driver, String metodo) {
+
+		UUID uuid = UUID.randomUUID();
+		String reportLocation = "C:\\Automacao\\Evidencias\\";
+
+		// generate screenshot as a file object
+		File scrFile = ((TakesScreenshot) driver)
+				.getScreenshotAs(OutputType.FILE);
+		try {
+			// copy file object to designated location
+			FileUtils.copyFile(scrFile, new File(reportLocation + metodo + uuid
+					+ ".png"));
+		} catch (IOException e) {
+			System.out.println("Error while generating screenshot:\n"
+					+ e.toString());
+		}
+		return reportLocation + metodo + uuid + ".png";
+	}
+
+	@Parameters("browserName")
+	public void open_Browser(String browserName) throws Exception {
+
+		try {
+			if (browserName.equalsIgnoreCase("Firefox")) {
+				driver = new FirefoxDriver();
+				Report.pass("open_Browser", browserName.toString(),
+						KeyWordExample.imgPg(Report.caso));
+			} else if (browserName.equalsIgnoreCase("chrome")) {
+				
+//				System.setProperty("webdriver.chrome.driver","C:\\Automacao\\browser\\chromedriver.exe");
+//				ChromeOptions options = new ChromeOptions();
+//				options.addArguments("user-data-dir=C:\\Users\\amarinho\\appdata\\Local\\Google\\Chrome\\User Data\\Default");
+//				options.addArguments("--start-maximized");
+//				driver = new ChromeDriver(options);
+				
+				
+				
+				System.setProperty("webdriver.chrome.driver",
+						"C:\\Automacao\\browser\\chromedriver.exe");
+				driver = new ChromeDriver();
+				Report.pass("open_Browser", browserName.toString(),
+						KeyWordExample.imgPg(Report.caso));
+		
+			
+		       
+				
+			} else if (browserName.equalsIgnoreCase("IE")) {
+				DesiredCapabilities caps = DesiredCapabilities
+						.internetExplorer();
+				caps.setCapability(
+						InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
+						true);
+				System.setProperty("webdriver.ie.driver",
+						"C:\\Automacao\\browser\\IEDriverServer.exe");
+				driver = new InternetExplorerDriver(caps);
+				
+				
+				Report.pass("open_Browser", browserName.toString(),
+						KeyWordExample.imgPg(Report.caso));
+				
+			} else if (browserName.equalsIgnoreCase("mobile")){
+				System.setProperty("webdriver.chrome.driver",
+						"C:\\Automacao\\browser\\chromedriver.exe");
+				
+				
+				Map<String, String> mobileEmulation = new HashMap<String, String>();
+				mobileEmulation.put("deviceName", "Google Nexus 5");
+
+				Map<String, Object> chromeOptions = new HashMap<String, Object>();
+				chromeOptions.put("mobileEmulation", mobileEmulation);
+				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+				capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+				 driver = new ChromeDriver(capabilities);
+			
+			}else if (browserName.equalsIgnoreCase("edge")) {
+				File file = new File("C:\\Automacao\\browser\\MicrosoftWebDriver.exe");
+>>>>>>> refs/remotes/origin/master
 
 			    System.setProperty("webdriver.edge.driver", file.getAbsolutePath());
 			    DesiredCapabilities capabilities = DesiredCapabilities.edge();

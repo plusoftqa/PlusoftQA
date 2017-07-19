@@ -80,6 +80,7 @@ public class KeyWordExecution {
 		
 
 		File arquivos[];
+<<<<<<< HEAD
 		File diretorio = new File("C:\\Automacao\\GithubQA\\PlusoftQA\\Datadriven\\Casos\\Executar\\");
 		//File diretorio = new File("C:\\Automacao\\Cadastro\\");
 		//C:\Automacao\Cadastro
@@ -93,6 +94,21 @@ public class KeyWordExecution {
 			System.out.println(arquivos[i].toString());
 			String evidencias = arquivos[i].toString().substring(58).replace(".xls", "");
 			r.Reports(evidencias);
+=======
+		File diretorio = new File("/Datadriven/Casos/Executar/");
+		//File diretorio = new File("C:\\Automacao\\Cadastro\\");
+		//C:\Automacao\Cadastro
+		arquivos = diretorio.listFiles();
+		
+		
+		
+		
+		for (int i = 0; i < arquivos.length; i++) {
+			
+			System.out.println(arquivos[i].toString());
+			String teste = arquivos[i].toString().substring(29).replace(".xls", "");
+			r.Reports(teste);
+>>>>>>> refs/remotes/origin/master
 			inicio.config();
 			excelSheet.openSheet(arquivos[i].toString());
 
